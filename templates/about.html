@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <p>My hobbies:</p>
+{   {% if hobbies %}
+        <ul>
+            {% for hobby in hobbies %}
+                <li>{{ hobby }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>I have no hobbies.</p>
+    {%endif %}
+{% endblock content %}
