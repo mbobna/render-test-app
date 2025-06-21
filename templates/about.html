@@ -1,8 +1,11 @@
 {% extends "base.html" %}
 
 {% block content %}
+    {% if user_name %}
+        Welcome back {{ user_name }}!
+    {% endif %}
     <p>My hobbies:</p>
-{   {% if hobbies %}
+    {% if hobbies %}
         <ul>
             {% for hobby in hobbies %}
                 <li>{{ hobby }}</li>
@@ -11,4 +14,16 @@
     {% else %}
         <p>I have no hobbies.</p>
     {%endif %}
+<p>Want to contact me?</p>
+
+    <form action="/about-me" method="post">
+        Name: <input type="text" name="contact-name"><br>
+        Email: <input type="email" name="contact-email"><br>
+        Contact message: <br>
+        <textarea name="contact-message">
+        </textarea>
+        <br>
+        <button type="submit">Send message</button>
+    </form>
 {% endblock content %}
+
